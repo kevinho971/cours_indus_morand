@@ -1,0 +1,24 @@
+security:
+    encoders:
+        Victoire\Bundle\UserBundle\Entity\User: bcrypt
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                failure_path: /login
+                check_path: /login_check
+                default_target_path: /
+            logout: true
+            anonymous: true
+            switch_user: ~
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

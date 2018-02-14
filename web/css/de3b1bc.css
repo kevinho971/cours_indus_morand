@@ -1,0 +1,21 @@
+a.vic-anchor {
+  display: block;
+  position: relative;
+  visibility: hidden;
+  top: -150px;
+}
+.vic-widget {
+  background-size: cover;
+}
+*[data-toggle="viclink-modal"] {
+  pointer-events: none;
+  cursor: default;
+}
+/* Hinclude workaround because it does not trigger ajaxComplete event */
+[class^='include_'] *[data-toggle="viclink-modal"] {
+  pointer-events: auto;
+}
+
+.vic-widget.vic-widget-image img {
+  max-width: 100%;
+}
